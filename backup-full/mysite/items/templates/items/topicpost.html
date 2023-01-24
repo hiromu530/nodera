@@ -1,0 +1,23 @@
+{% extends "base1.html" %}
+{% block page_title %}トピック一覧{% endblock %}
+{% block title %}トピック一覧{% endblock %}
+
+
+{% block serach %}
+    <form method="post" action="{% url 'items:index' %}">
+        {% csrf_token %}
+        {{ form.as_p }} <button type="submit" class="button">検索</button>
+    </form>
+{% endblock %}
+
+
+{% block content %}   
+    {% for post in topics %}
+        <div class="topics">
+            <a href="{% url 'items:write' post.title %}"> <font color="black"> <p class="title">{{ post.title }}</p> </font> </a> 
+            {{ post.created }}
+            <hr>
+        </div>
+    {% endfor %}
+{% endblock %}
+

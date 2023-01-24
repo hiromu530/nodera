@@ -1,0 +1,24 @@
+{% extends "baselogin.html" %}
+
+{% block page_title %}登録{% endblock %}
+{% block title %}登録{% endblock %}
+
+{% block content %}
+    <form method="POST" action="{% url 'items:create' %}">
+      {% csrf_token %}
+      <label>ユーザー名</label>
+      {{ form.username }}
+      {{ form.username.errors }}
+      <label>パスワード</label>
+      {{ form.password1 }}
+      {{ form.password1.errors }}
+      <label>パスワード(確認)</label>
+      {{ form.password2 }}
+      {{ form.password2.errors }}
+      <button type="submit" class="button">登録</button>
+    </form>
+{% endblock %}
+
+{% block write %}
+    <a href="{%url 'items:login'%}"><font color="black">ログイン画面へ</font></a>
+{% endblock %}

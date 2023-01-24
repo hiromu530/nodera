@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block page_title %}posts{% endblock %}
+{% block title %} post {% endblock %}
+{% block content %}
+    <h1>
+        <cfquery name="topictitle" datasource="mysite/static/db.sqlite3/">
+            SELECT title  FROM topics
+            ORDER BY title
+        </cfquery>
+        <h3>トピック一覧</h3>
+        <cfoutput query="topictitle">
+        <a href="items:write?title=#topics.title#"></a><br>
+        </cfoutput>
+    </h1>
+{% endblock %}

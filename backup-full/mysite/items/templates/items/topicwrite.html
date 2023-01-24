@@ -1,0 +1,12 @@
+{% extends "base1.html" %}
+
+{% block page_title %}トピック一覧{% endblock %}
+{% block title %}トピックの作成{% endblock %}
+
+{% block content %}
+    <form method="post" action="{% url 'items:topicwrite' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button">作成</button>
+    </form>
+{% endblock %}

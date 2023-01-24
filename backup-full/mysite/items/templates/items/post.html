@@ -1,0 +1,28 @@
+{% extends "base1.html" %}
+{% block page_title %}{{ items.title }}{% endblock %}
+
+{% block title %} 
+    {{param}}
+{% endblock %}
+
+
+{% block content %}   
+    {% for post in items %}
+        <div class="items">
+            <p class="text">{{ post.text }}</p>
+            {{ post.user }}
+            <br>
+            {{ post.created_at }}
+            <hr>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+
+{% block write %}
+    <form method="POST" action="{% url 'items:write' param %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button">投稿</button>
+    </form>
+{% endblock %}

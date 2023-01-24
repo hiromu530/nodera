@@ -1,0 +1,9 @@
+{% extends "baselogin.html" %}
+
+{% block page_title %}ログアウト{% endblock %}
+{% block title %}ログアウト{% endblock %}
+
+{% block content %}
+   <h1>ログアウトしました。></h1>
+   <p><a href="{% url'items:login' %}">ログイン画面へ</a></p>
+{% endblock %}

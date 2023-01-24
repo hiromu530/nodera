@@ -1,0 +1,24 @@
+{% extends "baselogin.html" %}
+
+{% block page_title %}ログイン{% endblock %}
+{% block title %}ログイン{% endblock %}
+
+{% block content %}
+{% if form.errors  %}
+<p>ユーザーID, パスワードが一致しません．</p>
+{% endif %}
+<form method="POST" action="{% url 'items:login' %}">
+  {% csrf_token %}
+  <label>ユーザー名</label>
+  {{ form.username }}
+  {{ form.username.errors }}
+  <label>パスワード</label>
+  {{ form.password }}
+  {{ form.password.errors }}
+  <button type = "submit">ログイン</button>
+</form>
+{% endblock %}
+
+{% block write %}
+    <a href="{%url 'items:create'%}"><font color="black">新規登録</font></a>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'base1.css' %}">
+    <title>{% block page_title %}{% endblock %}</title>
+
+</head>
+<body>
+<nav>
+    <p class="site-name">掲示板
+    </p>
+    <ul>
+        <li><a href="{% url 'items:index' %}">ホーム</a></li>
+        <li><a href="{% url 'items:topicwrite' %}">トピック作成</a></li>
+    </ul>
+</nav>
+
+<div class="title">
+    <h1>{% block title %}write{% endblock %}</h1>
+</div>
+
+<hr>
+
+<div class="content">
+    {% block content%}write{% endblock %}
+</div>
+
+<div class="writetitle">
+    {% block writetitle %}{% endblock %}
+</div>
+
+<hr>
+
+<div class="write">
+    {% block write %}{% endblock %}
+</div>
+
+</body>
+</html>
